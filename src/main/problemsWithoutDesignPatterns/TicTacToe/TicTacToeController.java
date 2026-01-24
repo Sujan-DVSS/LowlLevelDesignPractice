@@ -1,4 +1,4 @@
-package java.lld.problemsWithoutDesignPatterns.TicTacToe;
+package main.problemsWithoutDesignPatterns.TicTacToe;
 
 /*
 STEP1: DISCUSS REQUIREMENTS
@@ -282,8 +282,6 @@ public class TicTacToeController {
     public static void main(String[] args) {
         Player p1 = new Player("Player-1", Symbol.X);
         Player p2 = new Player("Player-2", Symbol.O);
-
-        Board board = new Board();
 
         Game game = new Game(p1, p2);
         TicTacToeController controller = new TicTacToeController(game);
