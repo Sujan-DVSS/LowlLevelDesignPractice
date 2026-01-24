@@ -1,4 +1,4 @@
-package main.TicTacToe;
+package java.lld.problemsWithoutDesignPatterns.TicTacToe;
 
 /*
 STEP1: DISCUSS REQUIREMENTS
@@ -87,6 +87,7 @@ TicTacToeController{
 }
 
 * */
+//TODO: Make this game more extensible and maintainable in future inorder to support anything. Practice a lot
 enum Symbol {
     X('X'),
     O('O'),
@@ -139,7 +140,7 @@ class Board {
         numberOfMoves++;
     }
 
-    public boolean isPositionValid(int row, int column){
+    public boolean isPositionValid(int row, int column) {
         if (row < 1 || row > size || column < 1 || column > size) {
             System.out.println("The row/column is out of the board grids");
             return false;
@@ -194,13 +195,13 @@ class Game {
             board.printBoard();
             int row = sc.nextInt();
             int col = sc.nextInt();
-            if(!board.isPositionValid(row, col)){
+            if (!board.isPositionValid(row, col)) {
                 System.out.println("The row and col positions are invalid. Please provide valid input");
                 playerQueue.offer(player);
                 continue;
             }
             board.setSymbolAtPosition(row, col, player.getPlayerSymbol());
-            if (isRowComplete(player.getPlayerSymbol(), row) || isColumnComplete(player.getPlayerSymbol(), col) || isDiagonalComplete(player.getPlayerSymbol(), row, col)){
+            if (isRowComplete(player.getPlayerSymbol(), row) || isColumnComplete(player.getPlayerSymbol(), col) || isDiagonalComplete(player.getPlayerSymbol(), row, col)) {
                 System.out.println("Player: " + player.getPlayerName() + " is the winner");
                 isWinnerFound = true;
                 board.printBoard();
@@ -208,7 +209,7 @@ class Game {
             }
             playerQueue.offer(player);
         }
-        if(!isWinnerFound && isGameOver()){
+        if (!isWinnerFound && isGameOver()) {
             System.out.println("The game is a draw. Thanks for playing!!");
             board.printBoard();
         }
@@ -265,10 +266,11 @@ class Game {
     }
 
 }
-public class TicToeController1{
+
+public class TicTacToeController {
     private final Game game;
 
-    TicToeController(Game game) {
+    TicTacToeController(Game game) {
         this.game = game;
     }
 
@@ -284,7 +286,7 @@ public class TicToeController1{
         Board board = new Board();
 
         Game game = new Game(p1, p2);
-        TicToeController controller = new TicToeController(game);
+        TicTacToeController controller = new TicTacToeController(game);
 
         controller.start();
     }
