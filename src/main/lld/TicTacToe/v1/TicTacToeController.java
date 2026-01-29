@@ -1,4 +1,4 @@
-package main.problemsWithoutDesignPatterns.TicTacToe;
+package main.lld.TicTacToe.v1;
 
 /*
 STEP1: DISCUSS REQUIREMENTS
